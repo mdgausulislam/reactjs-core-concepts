@@ -2,8 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 
 const number = 5555;
-const singer = { name: 'Dr. Mahfuz', job: 'singer' };
-const singer2 = { name: 'Eva Rahman', job: 'singer' };
+
+const singer2 = [
+  { name: 'Dr. Mahfuz', job: 'singer' },
+  { name: 'Eva Rahman', job: 'singer' },
+  { name: 'Agun', job: 'sopno' },
+  { name: 'Shuvro', job: 'pathor'}
+];
 
 const singerStyle = {
   color: 'purple',
@@ -11,12 +16,23 @@ const singerStyle = {
 }
 
 function App() {
+  const cricketer = ["Tamim Iqbal", "Mehedi Hasan Miraz", "Musfiqur Rahim", "Mahaduillah Riyad", "Mustafizur Rahman", "Taskin Ahmed", "Shoriful Islam"]
   return (
     <div className="App">
-      <Person name="Tamim Iqbal" job="Batter"></Person>
-      <Person name="Mehedi Hasan Miraz" job="All Rounder"></Person>
-      <Person name="Musfiqur Rahim" job="Batter & wicket-kipper"></Person>
-      <Person name="Mahaduillah Riyad" job="All Rounder"></Person>
+      {
+        cricketer.map(cricket => <li>Name:  {cricket}</li>)
+      }
+      {
+        cricketer.map(cricket => <Person name={cricket}></Person>)
+      }
+
+      {
+        singer2.map(singer=><Person name={singer.name}></Person>)
+      }
+      {/* <Person name={cricketer[0]} job="Batter"></Person>
+      <Person name={cricketer[1]} job="All Rounder"></Person>
+      <Person name={cricketer[2]} job="Batter & wicket-kipper"></Person>
+      <Person name={cricketer[3]} job="All Rounder"></Person> */}
       <h5>New Components</h5>
       <p>React Mama Rock Mama</p>
       <Friend name="hemo" phone="0000"></Friend>
@@ -36,7 +52,7 @@ function Person(props) {
     </div>
   )
 }
-function Friend(props){
+function Friend(props) {
   console.log(props);
   return (
     <div className="container">
